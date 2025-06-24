@@ -2,11 +2,14 @@
 #include <cstdlib>
 #include <ctime>
 
+void jugarBlackjack();
+
 using namespace std;
 
 int main()
 {
     int opcion = 0;
+    float saldo = 0;
 
     while (opcion != 4)
     {
@@ -24,7 +27,6 @@ int main()
             cout << "Has seleccionado Poker." << endl;
             break;
         case 2:
-            cout << "Has seleccionado Blackjack." << endl;
             jugarBlackjack();
             break;
         case 3:
@@ -40,18 +42,4 @@ int main()
     }
 
     return 0;
-}
-
-void jugarBlackjack()
-{
-    //Valores de las cartas para juego de blackjack
-    string nombres[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-    int valores[] = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
-    const int totalCartas = 13;
-
-    int indiceCarta = rand() % totalCartas;
-    string nombre = nombres[indiceCarta];
-    int valor = valores[indiceCarta];
-
-    
 }
