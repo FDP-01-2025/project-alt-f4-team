@@ -1,8 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <windows.h>
 
 using namespace std;
+
 int suma = 0, opcion;
 struct Carta
 {
@@ -24,18 +26,34 @@ void jugarBlackjack()
 {
     srand(time(0));
     suma = 0;
-    
+    int opcion;
+    int asesComoOnce = 0;
+
+    cout << "Sacando cartas iniciales....." << endl;
+    Sleep(1000);
+
     for (int i = 0; i < 2; i++)
     {
         Carta carta = generarCarta();
         cout << "Carta obtenida: [" << carta.valor << ", valor: " << carta.puntos << "]" << endl;
+        Sleep(1000);
 
         suma += carta.puntos;
+
+        if (carta.valor == "A")
+            asesComoOnce++;
+
+        while (suma > 21 && asesComoOnce > 0)
+        {
+            suma -= 10;
+            asesComoOnce--;
+        }
     }
 
     while (suma < 21)
     {
-        cout << "Tiene un puntaje de: " << suma << endl;
+        cout << "PUNTAJE: " << suma << endl;
+        cout << "********************************************" << endl;
 
         do
         {
@@ -44,24 +62,35 @@ void jugarBlackjack()
             cout << "0. No" << endl;
             cin >> opcion;
 
-            if (opcion != 0 && opcion != 1)
-            {
-                cout << "Ingrese un numero valido" << endl;
-            }
-            else if (cin.fail())
+            if (cin.fail() || (opcion != 0 && opcion != 1))
             {
                 cin.clear();
                 cin.ignore(1000, '\n');
                 opcion = -1;
-                cout << "Ingrese un valor valido" << endl;
+                cout << "Ingrese un valor valido (0 o 1)" << endl;
             }
+
         } while (opcion != 0 && opcion != 1);
 
         if (opcion == 1)
         {
             Carta carta = generarCarta();
+            system("cls");
+            cout << "Sacando nueva carta....." << endl;
+            Sleep(1000);
             cout << "Carta obtenida: [" << carta.valor << ", valor: " << carta.puntos << "]" << endl;
+            Sleep(1000);
+
             suma += carta.puntos;
+
+            if (carta.valor == "A")
+                asesComoOnce++;
+
+            while (suma > 21 && asesComoOnce > 0)
+            {
+                suma -= 10;
+                asesComoOnce--;
+            }
         }
         else if (opcion == 0)
         {
@@ -75,7 +104,9 @@ void jugarBlackjack()
         }
         else if (suma == 21)
         {
-            cout << "GANASTE!, obtuviste puntaje exacto";
+            cout << "BLACKJACK!, obtuviste puntaje exacto" << endl;
+            cout << "PUNTAJE: " << suma << endl;
+            break;
         }
     }
 }
