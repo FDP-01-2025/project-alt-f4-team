@@ -165,14 +165,13 @@ for (int i : cambiarJugador) {
     baraja.pop_back();
 }
 
-    // Cambio de cartas CPU
     vector<int> cambiarCPU = seleccionarCartasCPU(cpu);
     for (int i : cambiarCPU) {
         cpu[i] = baraja.back();
         baraja.pop_back();
     }
 
-    // Mostrar resultados
+
     cout << "\nTu mano final:\n";
     mostrarMano(jugador);
     string jugadaJugador = evaluarMano(jugador);
@@ -183,7 +182,6 @@ for (int i : cambiarJugador) {
     string jugadaCPU = evaluarMano(cpu);
     cout << "Jugada de la CPU: " << jugadaCPU << "\n";
 
-    // Ganador
     int vj = valorJugada(jugadaJugador);
     int vc = valorJugada(jugadaCPU);
 
