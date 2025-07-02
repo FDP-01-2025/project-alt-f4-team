@@ -15,7 +15,7 @@ struct Carta {
 vector<Carta> crearBaraja() {
     vector<Carta> baraja;
     string valores[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
-    string palos[] = {"P", "C", "D", "T"}; // P=♠, C=♥, D=♦, T=♣ (ASCII-friendly)
+    string palos[] = {"P", "C", "D", "T"}; 
 
     for (const string &palo : palos) {
         for (const string &valor : valores) {
@@ -30,21 +30,14 @@ void barajar(vector<Carta> &baraja) {
     random_shuffle(baraja.begin(), baraja.end());
 }
 
-void mostrarMano(const vector<Carta> &mano) {
-    cout << "Tu mano:\n";
+void mostrarMano(const vector<Carta> &mano, bool ocultar = false) {
     for (int i = 0; i < mano.size(); i++) {
-        cout << i+1 << ") " << mano[i].valor << mano[i].palo << "  ";
+        if (ocultar)
+            cout << i + 1 << ") [??]  ";
+        else
+            cout << i + 1 << ") " << mano[i].valor << mano[i].palo << "  ";
     }
     cout << endl;
-}
-
-vector<Carta> repartirMano(vector<Carta> &baraja) {
-    vector<Carta> mano;
-    for (int i = 0; i < 5; i++) {
-        mano.push_back(baraja.back());
-        baraja.pop_back();
-    }
-    return mano;
 }
 
 int valorNumerico(const string &valor) {
@@ -68,7 +61,6 @@ string evaluarMano(const vector<Carta> &mano) {
 
     sort(valores.begin(), valores.end());
 
-    // Evaluar escalera
     bool escalera = true;
     for (int i = 1; i < valores.size(); i++) {
         if (valores[i] != valores[i - 1] + 1) {
@@ -91,38 +83,113 @@ string evaluarMano(const vector<Carta> &mano) {
 
     return "Carta alta";
 }
+
+// Valor numérico de la jugada para comparar
+int valorJugada(const string &jugada) {
+    if (jugada == "Escalera de color") return 9;
+    if (jugada == "Póker") return 8;
+    if (jugada == "Full house") return 7;
+    if (jugada == "Color") return 6;
+    if (jugada == "Escalera") return 5;
+    if (jugada == "Trío") return 4;
+    if (jugada == "Doble par") return 3;
+    if (jugada == "Par") return 2;
+    return 1;
+}
+
+vector<Carta> repartirMano(vector<Carta> &baraja) {
+    vector<Carta> mano;
+    for (int i = 0; i < 5; i++) {
+        mano.push_back(baraja.back());
+        baraja.pop_back();
+    }
+    return mano;
+}
+
+vector<int> seleccionarCartasCPU(const vector<Carta>& mano) {
+    map<string, int> contador;
+    for (const auto &c : mano) contador[c.valor]++;
+    vector<int> indices;
+
+    // Buscar qué conservar
+    for (int i = 0; i < mano.size(); i++) {
+        if (contador[mano[i].valor] >= 2) continue; // Conservar pares o más
+        indices.push_back(i); // Desechar lo demás
+    }
+
+    return indices;
+}
+
 void jugarPoker() {
     vector<Carta> baraja = crearBaraja();
     barajar(baraja);
 
-    vector<Carta> mano = repartirMano(baraja);
-    mostrarMano(mano);
+    vector<Carta> jugador = repartirMano(baraja);
+    vector<Carta> cpu = repartirMano(baraja);
 
-    // Cambiar cartas
-    cout << "\n¿Deseas cambiar alguna carta? (Ej: 2 5 o 0 para no cambiar): ";
-    cin.ignore(); // Limpiar entrada anterior
-    string entrada;
+    cout << "\nTu mano:\n";
+    mostrarMano(jugador);
+string entrada;
+vector<int> cambiarJugador;
+
+while (true) {
+    cout << "\n¿Deseas cambiar cartas? (Ej: 2 4 o 0 para no cambiar): ";
     getline(cin, entrada);
 
-    stringstream ss(entrada);
-    int idx;
-    vector<int> cambiar;
+    if (!entrada.empty()) {
+        stringstream ss(entrada);
+        int idx;
+        bool valido = true;
+        cambiarJugador.clear();
 
-    while (ss >> idx) {
-        if (idx >= 1 && idx <= 5)
-            cambiar.push_back(idx - 1);
+        while (ss >> idx) {
+            if (idx == 0) {
+                cambiarJugador.clear(); // no cambiar nada
+                break;
+            }
+            if (idx >= 1 && idx <= 5) {
+                cambiarJugador.push_back(idx - 1);
+            } else {
+                valido = false;
+                break;
+            }
+        }
+
+        if (valido) break;
+        else cout << "Entrada inválida. Intenta de nuevo.\n";
     }
+}
 
-    for (int i : cambiar) {
-        mano[i] = baraja.back();
+for (int i : cambiarJugador) {
+    jugador[i] = baraja.back();
+    baraja.pop_back();
+}
+
+    // Cambio de cartas CPU
+    vector<int> cambiarCPU = seleccionarCartasCPU(cpu);
+    for (int i : cambiarCPU) {
+        cpu[i] = baraja.back();
         baraja.pop_back();
     }
 
+    // Mostrar resultados
     cout << "\nTu mano final:\n";
-    mostrarMano(mano);
+    mostrarMano(jugador);
+    string jugadaJugador = evaluarMano(jugador);
+    cout << "Tu jugada: " << jugadaJugador << "\n";
 
-    string resultado = evaluarMano(mano);
-    cout << "\nTu jugada: " << resultado << endl;
+    cout << "\nMano de la CPU:\n";
+    mostrarMano(cpu);
+    string jugadaCPU = evaluarMano(cpu);
+    cout << "Jugada de la CPU: " << jugadaCPU << "\n";
+
+    // Ganador
+    int vj = valorJugada(jugadaJugador);
+    int vc = valorJugada(jugadaCPU);
+
+    if (vj > vc) cout << "\n¡Ganaste la partida!\n";
+    else if (vc > vj) cout << "\nLa CPU gana esta ronda.\n";
+    else cout << "\n¡Empate!\n";
 
     system("pause");
 }
