@@ -1,46 +1,68 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <windows.h>
-
+#include <windows.h>  
+#include <conio.h>
 using namespace std;
 
 void jugarBlackjack();
+void jugarPoker();
+void imprimirMenu(int seleccion) {
+    system("cls");
+    cout << "*************** BIENVENIDO A UCA CARDS ***************\n\n";
 
-using namespace std;
+    string opciones[4] = {
+        "1. Poker",
+        "2. 21 (Blackjack)",
+        "3. Vete a Pescar",
+        "4. Salir"
+    };
 
-int main()
-{
-    int opcion = 0;
-    float saldo = 0;
+    for (int i = 0; i < 4; i++) {
+        if (i == seleccion) {
+            cout << " > " << opciones[i] << " <\n";
+        } else {
+            cout << "   " << opciones[i] << "\n";
+        }
+    }
+}
 
-    while (opcion != 4)
-    {
-        cout << "\n*************** BIENVENIDO A UCA CARDS ***************" << endl;
-        cout << "1. Poker" << endl;
-        cout << "2. 21 (Blackjack)" << endl;
-        cout << "3. Vete a Pescar" << endl;
-        cout << "4. Salir" << endl;
-        cout << "Seleccione una opcion: ";
-        cin >> opcion;
+int main() {
+    int seleccion = 0; 
 
-        switch (opcion)
-        {
-        case 1:
-            cout << "Has seleccionado Poker." << endl;
-            break;
-        case 2:
-            jugarBlackjack();
-            break;
-        case 3:
-            cout << "Has seleccionado Vete a Pescar. (Aquí iría el código del juego)" << endl;
-            break;
-        case 4:
-            cout << "Gracias por jugar en UCA CARDS. ¡Hasta pronto!" << endl;
-            break;
-        default:
-            cout << "Opcion no valida. Por favor seleccione una opcion del 1 al 4." << endl;
-            break;
+    while (true) {
+        imprimirMenu(seleccion);  
+
+        int tecla = _getch();     
+
+        if (tecla == 224 || tecla == 0) {  
+            int flecha = _getch();        
+
+            if (flecha == 72) {            
+                seleccion--;
+                if (seleccion < 0) seleccion = 3;
+            } else if (flecha == 80) {     // Flecha ↓
+                seleccion++;
+                if (seleccion > 3) seleccion = 0;
+            }
+        } else if (tecla == 13) {  // Enter
+            system("cls");
+
+            switch (seleccion) {
+                case 0:
+                    jugarPoker();
+                    break;
+                case 1:
+                    jugarBlackjack();
+                    break;
+                case 2:
+                    cout << "Has seleccionado Vete a Pescar.\n";
+                    system("pause");
+                    break;
+                case 3:
+                    cout << "Gracias por jugar en UCA CARDS. ¡Hasta pronto!\n";
+                    return 0;
+            }
         }
     }
 
