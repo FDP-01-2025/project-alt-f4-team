@@ -9,13 +9,12 @@
 #include "src/utils.h"
 using namespace std;
 
-void jugarBlackjack();
 //void jugarPoker();
-void imprimirMenu(int seleccion) {
+void printMenu(int choice) {
     system("cls");
     cout << "*************** BIENVENIDO A UCA CARDS ***************\n\n";
 
-    string opciones[4] = {
+    string options[4] = {
         "1. Poker",
         "2. 21 (Blackjack)",
         "3. Vete a Pescar",
@@ -23,19 +22,19 @@ void imprimirMenu(int seleccion) {
     };
 
     for (int i = 0; i < 4; i++) {
-        if (i == seleccion) {
-            cout << " > " << opciones[i] << " <\n";
+        if (i == choice) {
+            cout << " > " << options[i] << " <\n";
         } else {
-            cout << "   " << opciones[i] << "\n";
+            cout << "   " << options[i] << "\n";
         }
     }
 }
 
 int main() {
-    int seleccion = 0; 
+    int choice = 0; 
 
     while (true) {
-        imprimirMenu(seleccion);  
+        printMenu(choice);  
 
         int tecla = _getch();     
 
@@ -43,16 +42,16 @@ int main() {
             int flecha = _getch();        
 
             if (flecha == 72) {            
-                seleccion--;
-                if (seleccion < 0) seleccion = 3;
+                choice--;
+                if (choice < 0) choice = 3;
             } else if (flecha == 80) {     // Flecha ↓
-                seleccion++;
-                if (seleccion > 3) seleccion = 0;
+                choice++;
+                if (choice > 3) choice = 0;
             }
         } else if (tecla == 13) {  // Enter
             system("cls");
 
-            switch (seleccion) {
+            switch (choice) {
                 case 0:
                     //jugarPoker();
                     break;
