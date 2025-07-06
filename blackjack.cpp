@@ -1,17 +1,22 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <windows.h>
+#include <cstdlib> // For rand() method
+#include <ctime> // To reset the values every moment the program executes
+#include <windows.h> //For console commands such as "cls"
+
 
 using namespace std;
 
 int suma = 0, opcion;
+
+
+// Struct for the cards
 struct Carta
 {
     string valor;
     int puntos;
 };
 
+//Method to generate the card of the games
 Carta generarCarta()
 {
     string valores[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
@@ -22,23 +27,25 @@ Carta generarCarta()
     return {valores[i], puntos[i]};
 }
 
+//Main method
 void jugarBlackjack()
 {
-    srand(time(0));
+    srand(time(0)); // Resetting every value of the game
     suma = 0;
     int opcion;
     int asesComoOnce = 0;
 
     cout << "Sacando cartas iniciales....." << endl;
-    Sleep(1000);
+    Sleep(1000); // 
 
     for (int i = 0; i < 2; i++)
     {
+        //Generando las primeras 2 cartas de la partida
         Carta carta = generarCarta();
         cout << "Carta obtenida: [" << carta.valor << ", valor: " << carta.puntos << "]" << endl;
         Sleep(1000);
 
-        suma += carta.puntos;
+        suma += carta.puntos; //Actualiza 
 
         if (carta.valor == "A")
             asesComoOnce++;

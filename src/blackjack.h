@@ -6,6 +6,8 @@
 #include "utils.h"
 #include <iostream>
 
+using namespace std;
+
 const int MAX_HAND_SIZE = 12;
 
 struct BlackjackHand {
@@ -55,24 +57,24 @@ struct BlackjackHand {
     void display(bool hideFirst = false) {
         for (int i = 0; i < numCards; i++) {
             if (i == 0 && hideFirst) {
-                std::cout << "[Hidden] ";
+                cout << "[Hidden] ";
             } else {
                 printCardShort(cards[i]);
-                std::cout << " ";
+                cout << " ";
             }
         }
         if (!hideFirst) {
-            std::cout << "(Value: " << getValue() << ")";
+            cout << "(Value: " << getValue() << ")";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 };
 
 void playBlackjack() {
     clearScreen();
-    std::cout << "========================================\n";
-    std::cout << "            BLACKJACK\n";
-    std::cout << "========================================\n";
+    cout << "========================================\n";
+    cout << "            BLACKJACK\n";
+    cout << "========================================\n";
     
     Deck deck;
     deck.shuffle();
@@ -80,7 +82,7 @@ void playBlackjack() {
     int playerMoney = 1000;
     
     while (playerMoney > 0) {
-        std::cout << "\nYour money: $" << playerMoney << std::endl;
+        cout << "\nYour money: $" << playerMoney << std::endl;
         
         int bet = getIntInput("Enter your bet (0 to quit): $", 0, playerMoney);
         if (bet == 0) break;
@@ -94,15 +96,15 @@ void playBlackjack() {
         playerHand.addCard(deck.dealCard());
         dealerHand.addCard(deck.dealCard());
         
-        std::cout << "\nDealer's hand: ";
+        cout << "\nDealer's hand: ";
         dealerHand.display(true);
         
-        std::cout << "Your hand: ";
+        cout << "Your hand: ";
         playerHand.display();
         
         // Check for blackjack
         if (playerHand.isBlackjack()) {
-            std::cout << "\nBlackjack! You win!\n";
+            cout << "\nBlackjack! You win!\n";
             playerMoney += bet * 1.5;
             pauseScreen();
             continue;
@@ -114,11 +116,11 @@ void playBlackjack() {
             if (!askYesNo("Hit?")) break;
             
             playerHand.addCard(deck.dealCard());
-            std::cout << "Your hand: ";
+            cout << "Your hand: ";
             playerHand.display();
             
             if (playerHand.isBusted()) {
-                std::cout << "Busted! You lose $" << bet << std::endl;
+                cout << "Busted! You lose $" << bet << endl;
                 playerMoney -= bet;
                 playerBusted = true;
                 break;
@@ -127,12 +129,12 @@ void playBlackjack() {
         
         if (!playerBusted) {
             // Dealer's turn
-            std::cout << "\nDealer's hand: ";
+            cout << "\nDealer's hand: ";
             dealerHand.display();
             
             while (dealerHand.getValue() < 17) {
                 dealerHand.addCard(deck.dealCard());
-                std::cout << "Dealer hits: ";
+                cout << "Dealer hits: ";
                 dealerHand.display();
             }
             
@@ -141,16 +143,16 @@ void playBlackjack() {
             int dealerValue = dealerHand.getValue();
             
             if (dealerHand.isBusted()) {
-                std::cout << "Dealer busted! You win $" << bet << std::endl;
+                cout << "Dealer busted! You win $" << bet << endl;
                 playerMoney += bet;
             } else if (playerValue > dealerValue) {
-                std::cout << "You win $" << bet << std::endl;
+                cout << "You win $" << bet << endl;
                 playerMoney += bet;
             } else if (playerValue < dealerValue) {
-                std::cout << "Dealer wins! You lose $" << bet << std::endl;
+                cout << "Dealer wins! You lose $" << bet << endl;
                 playerMoney -= bet;
             } else {
-                std::cout << "Push! It's a tie.\n";
+                cout << "Push! It's a tie.\n";
             }
         }
         
@@ -159,9 +161,9 @@ void playBlackjack() {
     }
     
     if (playerMoney <= 0) {
-        std::cout << "You're out of money! Game over.\n";
+        cout << "You're out of money! Game over.\n";
     } else {
-        std::cout << "Thanks for playing! You ended with $" << playerMoney << std::endl;
+        cout << "Thanks for playing! You ended with $" << playerMoney << std::endl;
     }
     
     pauseScreen();
