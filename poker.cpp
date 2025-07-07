@@ -116,3 +116,15 @@ int evaluarjugada(Carta mano[5], char resultado[30]) {
     strcpy(resultado, "Carta alta");
     return 1;
 }
+
+
+void cpuselecciona(Carta mano[5], bool cambiar[5]) {
+    int repeticiones[15] = {0};
+    for (int i = 0; i < 5; i++)
+        repeticiones[valornumerico(mano[i].valor)]++;
+
+    for (int i = 0; i < 5; i++) {
+        int v = valornumerico(mano[i].valor);
+        cambiar[i] = (repeticiones[v] < 2); 
+    }
+}
