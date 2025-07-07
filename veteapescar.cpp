@@ -27,5 +27,13 @@ struct jugador {
             }
         }
     }
-
+ void barajar() {
+        for (int i = 0; i < tam_baraja; i++) {
+            int j = rand() % tam_baraja;
+            char temp[3];
+            strcpy(temp, baraja[i]);
+            strcpy(baraja[i], baraja[j]);
+            strcpy(baraja[j], temp);
+        }
+    }
 };
