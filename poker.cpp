@@ -23,3 +23,14 @@ void crearbaraja(Carta baraja[52]) {
         }
     }
 }
+
+
+
+void barajar(Carta baraja[52]) {
+    for (int i = 0; i < 52; i++) {
+        int j = rand() % 52;
+        Carta temp = baraja[i];
+        baraja[i] = baraja[j];
+        baraja[j] = temp;
+    }
+}
