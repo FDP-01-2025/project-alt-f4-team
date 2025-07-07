@@ -87,5 +87,10 @@ int contar_valor(jugador& j, const char* val) {
         }
         return encontrado;
     }
+     const char* carta_aleatoria(jugador& j) {
+        if (j.cantidad == 0) return "";
+        return j.mano[rand() % j.cantidad];
+    }
+
 };
 
