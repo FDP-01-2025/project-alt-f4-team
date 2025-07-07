@@ -91,6 +91,104 @@ int contar_valor(jugador& j, const char* val) {
         if (j.cantidad == 0) return "";
         return j.mano[rand() % j.cantidad];
     }
+void turno(jugador& actual, jugador oponentes[2], bool es_humano) {
+        if (actual.cantidad == 0 && tope < tam_baraja) {
+            strcpy(actual.mano[actual.cantidad++], baraja[tope++]);
+        }
+
+        if (actual.cantidad == 0) return;
+
+        char valor[3];
+        if (es_humano) {
+            mostrar_mano(actual);
+            cout << "¿que valor quieres pedir? ";
+            cin >> valor;
+        } else {
+            strcpy(valor, carta_aleatoria(actual));
+            cout << actual.nombre << " pregunta por " << valor << ".\n";
+        }
+
+        bool acierto = false;
+        for (int i = 0; i < 2; i++) {
+            if (transferir(oponentes[i], actual, valor)) {
+                cout << oponentes[i].nombre << " entrego cartas de " << valor << " a " << actual.nombre << ".\n";
+                acierto = true;
+            }
+        }
+
+        if (!acierto && tope < tam_baraja) {
+            cout << actual.nombre << " pesco una carta.\n";
+            strcpy(actual.mano[actual.cantidad++], baraja[tope++]);
+        } else if (!acierto) {
+            cout << actual.nombre << " quiso pescar pero el mazo esta vacio.\n";
+        }
+
+        eliminar_cuartetos(actual);
+    }
+
+    bool terminado() {
+        int total = 0;
+        for (int i = 0; i < num_jugadores; i++) {
+            total += jugadores[i].cuartetos;
+        }
+        return total == 13 || (
+            jugadores[0].cantidad == 0 &&
+            jugadores[1].cantidad == 0 &&
+            jugadores[2].cantidad == 0 &&
+            tope >= tam_baraja
+        );
+    }
+
+    void mostrar_resultados() {
+        cout << "\nresultados:\n";
+        for (int i = 0; i < num_jugadores; i++) {
+            cout << jugadores[i].nombre << ": " << jugadores[i].cuartetos << " cuartetos\n";
+        }
+
+        int max_c = -1, ganador = -1;
+        for (int i = 0; i < num_jugadores; i++) {
+            if (jugadores[i].cuartetos > max_c) {
+                max_c = jugadores[i].cuartetos;
+                ganador = i;
+            }
+        }
+
+        cout << jugadores[ganador].nombre << " gana la partida\n";
+    }
+
+public:
+    void jugar() {
+        srand(time(0));
+        crear_baraja();
+        barajar();
+
+        jugadores[0] = {{}, 0, 0, "jugador"};
+        jugadores[1] = {{}, 0, 0, "cpu1"};
+        jugadores[2] = {{}, 0, 0, "cpu2"};
+
+        for (int i = 0; i < num_jugadores; i++) {
+            repartir(jugadores[i], 7);
+            eliminar_cuartetos(jugadores[i]);
+        }
+
+        int turno_actual = 0;
+        while (!terminado()) {
+            cout << "\nturno de " << jugadores[turno_actual].nombre << "\n";
+
+            jugador oponentes[2];
+            int idx = 0;
+            for (int i = 0; i < num_jugadores; i++) {
+                if (i != turno_actual)
+                    oponentes[idx++] = jugadores[i];
+            }
+
+            turno(jugadores[turno_actual], oponentes, turno_actual == 0);
+            turno_actual = (turno_actual + 1) % num_jugadores;
+            system("pause");
+        }
+
+        mostrar_resultados();
+    }
 
 };
 
