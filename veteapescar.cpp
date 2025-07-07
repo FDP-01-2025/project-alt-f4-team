@@ -36,4 +36,10 @@ struct jugador {
             strcpy(baraja[j], temp);
         }
     }
+    void repartir(jugador& j, int cantidad) {
+        for (int i = 0; i < cantidad && tope < tam_baraja; i++) {
+            strcpy(j.mano[j.cantidad++], baraja[tope++]);
+        }
+    }
+
 };
