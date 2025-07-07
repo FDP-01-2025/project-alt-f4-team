@@ -55,4 +55,21 @@ int contar_valor(jugador& j, const char* val) {
         }
         return cont;
     }
+    void eliminar_cuartetos(jugador& j) {
+        for (int v = 0; v < 13; v++) {
+            int cuenta = contar_valor(j, valores[v]);
+            if (cuenta == 4) {
+                int k = 0;
+                for (int i = 0; i < j.cantidad; i++) {
+                    if (strcmp(j.mano[i], valores[v]) != 0) {
+                        strcpy(j.mano[k++], j.mano[i]);
+                    }
+                }
+                j.cantidad = k;
+                j.cuartetos++;
+                cout << j.nombre << " formo un cuarteto de " << valores[v] << "\n";
+            }
+        }
+    }
 };
+
