@@ -71,5 +71,21 @@ int contar_valor(jugador& j, const char* val) {
             }
         }
     }
+     bool transferir(jugador& de, jugador& a, const char* valor) {
+        bool encontrado = false;
+        for (int i = 0; i < de.cantidad;) {
+            if (strcmp(de.mano[i], valor) == 0) {
+                strcpy(a.mano[a.cantidad++], de.mano[i]);
+                for (int j = i; j < de.cantidad - 1; j++) {
+                    strcpy(de.mano[j], de.mano[j + 1]);
+                }
+                de.cantidad--;
+                encontrado = true;
+            } else {
+                i++;
+            }
+        }
+        return encontrado;
+    }
 };
 
