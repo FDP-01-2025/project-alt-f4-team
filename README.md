@@ -4,11 +4,8 @@
 ## Descripción del Proyecto
 
 Breve descripción del juego, su propósito, cómo se juega y cualquier otro detalle importante que describa la idea general del proyecto. (Por cambiar)El proyecto titulado “Cartas VS” consiste en el diseño y desarrollo de un videojuego de cartas ejecutable desde la consola, programado en el lenguaje C++. Está orientado a reforzar de forma práctica los conocimientos adquiridos durante el curso Fundamentos de Programación, haciendo énfasis en la aplicación de estructuras de control, ciclos, funciones, condicionales, manejo de arreglos y conceptos básicos de entrada y salida de datos.
-El videojuego incluirá tres minijuegos clásicos de cartas: Póker simplificado, Blackjack (21) y Vete a Pescar, todos adaptados para funcionar en una interfaz de texto dentro de la consola. El jugador podrá seleccionar el juego que desea iniciar desde un menú principal, así como el modo de juego: contra una inteligencia artificial básica (IA) o modo multijugador local, en el cual dos usuarios se turnan utilizando el mismo dispositivo.
 
-
-**Por ejemplo:**
-Este proyecto consiste en un juego de aventuras donde el jugador debe explorar un mundo virtual, recoger objetos, resolver acertijos y enfrentar enemigos. El juego utiliza estructuras de control como `if`, `switch`, y bucles `while` y `for` para generar interacciones dinámicas.
+El videojuego incluirá tres minijuegos clásicos de cartas: Póker, Blackjack (21) y Vete a Pescar, todos adaptados para funcionar en una interfaz de texto dentro de la consola. El jugador podrá seleccionar el juego que desea iniciar desde un menú principal, así como el modo de juego: contra una inteligencia artificial básica (IA) .
 
 ## Equipo
 

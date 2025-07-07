@@ -7,9 +7,10 @@
 #include "src/deck.h"
 #include "src/blackjack.h"
 #include "src/utils.h"
+#include "src/poker.h"
+
 using namespace std;
 
-// void jugarPoker();
 void printMenu(int choice)
 {
     system("cls");
@@ -18,7 +19,7 @@ void printMenu(int choice)
     string options[4] = {
         "1. Poker",
         "2. 21 (Blackjack)",
-        "3. Vete a Pescar",
+        "3. Go Fish",
         "4. Salir"};
 
     for (int i = 0; i < 4; i++)
@@ -39,16 +40,18 @@ int main()
     int choice = 0;
     int playerMoney = 1000;
 
-    if(playerMoney == 0){
+    if (playerMoney == 0)
+    {
         playerMoney = 1000;
     }
+
     while (true)
     {
         printMenu(choice);
 
-        int tecla = _getch();
+        int key = _getch();
 
-        if (tecla == 224 || tecla == 0)
+        if (key == 224 || key == 0)
         {
             int flecha = _getch();
 
@@ -65,14 +68,14 @@ int main()
                     choice = 0;
             }
         }
-        else if (tecla == 13)
+        else if (key == 13)
         { // Enter
             system("cls");
 
             switch (choice)
             {
             case 0:
-                // jugarPoker();
+                playPoker(playerMoney);
                 break;
             case 1:
                 playBlackjack(playerMoney);
