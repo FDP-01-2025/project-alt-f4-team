@@ -41,5 +41,12 @@ struct jugador {
             strcpy(j.mano[j.cantidad++], baraja[tope++]);
         }
     }
+   void mostrar_mano(jugador& j) {
+        cout << "tu mano: ";
+        for (int i = 0; i < j.cantidad; i++) {
+            cout << j.mano[i] << " ";
+        }
+        cout << endl;
+    }
 
 };
