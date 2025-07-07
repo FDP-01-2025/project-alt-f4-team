@@ -53,3 +53,10 @@ int valornumerico(const char* v) {
     if (strcmp(v, "A") == 0) return 14;
     return atoi(v);
 }
+
+int contarvalor(Carta mano[5], const char* v) {
+    int c = 0;
+    for (int i = 0; i < 5; i++)
+        if (strcmp(mano[i].valor, v) == 0) c++;
+    return c;
+}
