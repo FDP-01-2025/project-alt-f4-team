@@ -34,3 +34,13 @@ void barajar(Carta baraja[52]) {
         baraja[j] = temp;
     }
 }
+
+void mostrarmano(Carta mano[5], bool ocultar = false) {
+    for (int i = 0; i < 5; i++) {
+        if (ocultar)
+            cout << i + 1 << ") [??]  ";
+        else
+            cout << i + 1 << ") " << mano[i].valor << mano[i].palo << "  ";
+    }
+    cout << endl;
+}
