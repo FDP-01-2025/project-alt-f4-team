@@ -16,4 +16,7 @@ struct jugador {
         int cuartetos = 0;
         const char* nombre;
     };
+     jugador jugadores[num_jugadores];
+    char baraja[tam_baraja][3];
+    int tope = 0;
 };
