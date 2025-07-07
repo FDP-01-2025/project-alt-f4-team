@@ -128,3 +128,60 @@ void cpuselecciona(Carta mano[5], bool cambiar[5]) {
         cambiar[i] = (repeticiones[v] < 2); 
     }
 }
+
+void jugarpoker() {
+    Carta baraja[52];
+    Carta jugador[5], cpu[5];
+    int tope = 0;
+
+    srand(time(0));
+    crearbaraja(baraja);
+    barajar(baraja);
+
+    for (int i = 0; i < 5; i++) {
+        jugador[i] = baraja[tope++];
+        cpu[i] = baraja[tope++];
+    }
+
+    cout << "\nTu mano inicial:\n";
+    mostrarmano(jugador);
+
+    
+    bool cambiar[5] = {false};
+    cout << "\nIngresa los numeros de cartas a cambiar (ej: 2 4), o 0 para no cambiar: ";
+    char linea[100];
+    cin.getline(linea, 100);
+    int i = 0, n;
+    while (sscanf(linea + i, "%d", &n) == 1) {
+        if (n >= 1 && n <= 5)
+            cambiar[n - 1] = true;
+        while (linea[i] != ' ' && linea[i] != '\0') i++;
+        while (linea[i] == ' ') i++;
+    }
+
+    for (int i = 0; i < 5; i++)
+        if (cambiar[i]) jugador[i] = baraja[tope++];
+
+    bool cambiarCPU[5] = {false};
+    cpuselecciona(cpu, cambiarCPU);
+    for (int i = 0; i < 5; i++)
+        if (cambiarCPU[i]) cpu[i] = baraja[tope++];
+
+    cout << "\nTu mano final:\n";
+    mostrarmano(jugador);
+    char jugadaJugador[30];
+    int vj = evaluarjugada(jugador, jugadaJugador);
+    cout << "Tu jugada: " << jugadaJugador << "\n";
+
+    cout << "\nMano de la CPU:\n";
+    mostrarmano(cpu);
+    char jugadaCPU[30];
+    int vc = evaluarjugada(cpu, jugadaCPU);
+    cout << "Jugada CPU: " << jugadaCPU << "\n";
+
+    if (vj > vc) cout << "\n ¡Ganaste!\n";
+    else if (vc > vj) cout << "\n CPU gana.\n";
+    else cout << "\n Empate.\n";
+
+    system("pause");
+}
