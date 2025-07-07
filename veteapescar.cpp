@@ -191,4 +191,8 @@ public:
     }
 
 };
+void jugarveteapescar() {
+    veteapescar juego;
+    juego.jugar();
+}
 
