@@ -9,3 +9,17 @@ struct Carta {
     char valor[3];  
     char palo;      
 };
+
+
+void crearbaraja(Carta baraja[52]) {
+    const char* valores[] = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+    const char palos[] = {'P','C','D','T'};
+    int k = 0;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 13; j++) {
+            strcpy(baraja[k].valor, valores[j]);
+            baraja[k].palo = palos[i];
+            k++;
+        }
+    }
+}
