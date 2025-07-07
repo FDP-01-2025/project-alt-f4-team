@@ -4,100 +4,51 @@
 #include <iostream>
 #include <string>
 
-enum Suit {
-    HEARTS = 0,
-    DIAMONDS = 1,
-    CLUBS = 2,
-    SPADES = 3
-};
-
-enum Rank {
-    ACE = 1,
-    TWO = 2,
-    THREE = 3,
-    FOUR = 4,
-    FIVE = 5,
-    SIX = 6,
-    SEVEN = 7,
-    EIGHT = 8,
-    NINE = 9,
-    TEN = 10,
-    JACK = 11,
-    QUEEN = 12,
-    KING = 13
-};
+using namespace std;
 
 struct Card {
-    Suit suit;
-    Rank rank;
-    
-    Card() : suit(HEARTS), rank(ACE) {}
-    Card(Suit s, Rank r) : suit(s), rank(r) {}
+    string rank;  
+    char suit;    
 };
 
-std::string getSuitName(Suit suit) {
+string getSuitName(char suit) {
     switch (suit) {
-        case HEARTS: return "Hearts";
-        case DIAMONDS: return "Diamonds";
-        case CLUBS: return "Clubs";
-        case SPADES: return "Spades";
+        case 'H': return "Hearts";
+        case 'D': return "Diamonds";
+        case 'C': return "Clubs";
+        case 'S': return "Spades";
         default: return "Unknown";
     }
 }
 
-std::string getRankName(Rank rank) {
-    switch (rank) {
-        case ACE: return "Ace";
-        case TWO: return "2";
-        case THREE: return "3";
-        case FOUR: return "4";
-        case FIVE: return "5";
-        case SIX: return "6";
-        case SEVEN: return "7";
-        case EIGHT: return "8";
-        case NINE: return "9";
-        case TEN: return "10";
-        case JACK: return "Jack";
-        case QUEEN: return "Queen";
-        case KING: return "King";
-        default: return "Unknown";
-    }
+string getRankName(string rank) {
+    if (rank == "A") return "Ace";
+    if (rank == "J") return "Jack";
+    if (rank == "Q") return "Queen";
+    if (rank == "K") return "King";
+    return rank;  
 }
 
-char getSuitSymbol(Suit suit) {
-    switch (suit) {
-        case HEARTS: return 'H';
-        case DIAMONDS: return 'D';
-        case CLUBS: return 'C';
-        case SPADES: return 'S';
-        default: return '?';
-    }
+int getCardValueBlackjack(const Card &card) {
+    if (card.rank == "A") return 11;
+    if (card.rank == "K" || card.rank == "Q" || card.rank == "J") return 10;
+    return stoi(card.rank);
 }
 
-void printCard(const Card& card) {
-    std::cout << getRankName(card.rank) << " of " << getSuitName(card.suit);
+int getCardValuePoker(const Card &card) {
+    if (card.rank == "A") return 14;
+    if (card.rank == "K") return 13;
+    if (card.rank == "Q") return 12;
+    if (card.rank == "J") return 11;
+    return stoi(card.rank);
 }
 
-void printCardShort(const Card& card) {
-    if (card.rank == 10) {
-        std::cout << "10" << getSuitSymbol(card.suit);
-    } else {
-        std::cout << getRankName(card.rank)[0] << getSuitSymbol(card.suit);
-    }
+void printCard(const Card &card) {
+    cout << getRankName(card.rank) << " of " << getSuitName(card.suit);
 }
 
-int getCardValue(const Card& card) {
-    if (card.rank >= JACK) {
-        return 10;
-    }
-    return card.rank;
-}
-
-int getCardValueAceHigh(const Card& card) {
-    if (card.rank == ACE) {
-        return 14;
-    }
-    return card.rank;
+void printCardShort(const Card &card) {
+    cout << card.rank << card.suit;
 }
 
 #endif
