@@ -48,5 +48,11 @@ struct jugador {
         }
         cout << endl;
     }
-
+int contar_valor(jugador& j, const char* val) {
+        int cont = 0;
+        for (int i = 0; i < j.cantidad; i++) {
+            if (strcmp(j.mano[i], val) == 0) cont++;
+        }
+        return cont;
+    }
 };
