@@ -6,7 +6,8 @@
 using namespace std;
 
 void jugarBlackjack();
-void jugarPoker();
+void jugarpoker();
+void jugarveteapescar();
 void imprimirMenu(int seleccion) {
     system("cls");
     cout << "*************** BIENVENIDO A UCA CARDS ***************\n\n";
@@ -50,13 +51,13 @@ int main() {
 
             switch (seleccion) {
                 case 0:
-                    jugarPoker();
+                    jugarpoker();
                     break;
                 case 1:
                     jugarBlackjack();
                     break;
                 case 2:
-                    cout << "Has seleccionado Vete a Pescar.\n";
+                    jugarveteapescar();
                     system("pause");
                     break;
                 case 3:
