@@ -19,4 +19,13 @@ struct jugador {
      jugador jugadores[num_jugadores];
     char baraja[tam_baraja][3];
     int tope = 0;
+      void crear_baraja() {
+        int idx = 0;
+        for (int i = 0; i < 13; i++) {
+            for (int j = 0; j < 4; j++) {
+                strcpy(baraja[idx++], valores[i]);
+            }
+        }
+    }
+
 };
