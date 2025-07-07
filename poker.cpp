@@ -44,3 +44,12 @@ void mostrarmano(Carta mano[5], bool ocultar = false) {
     }
     cout << endl;
 }
+
+
+int valornumerico(const char* v) {
+    if (strcmp(v, "J") == 0) return 11;
+    if (strcmp(v, "Q") == 0) return 12;
+    if (strcmp(v, "K") == 0) return 13;
+    if (strcmp(v, "A") == 0) return 14;
+    return atoi(v);
+}
