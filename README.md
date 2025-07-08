@@ -502,7 +502,7 @@ bool askYesNoValidated(const string& prompt) {
 
 #### 🔒 **Prevención de Estados Inválidos**
 
-\`\`\`cpp
+```cpp
 // Verificación de límites de array
 void addCard(GoFishPlayer& player, const Card& card) {
     if (player.cardCount < MAX_CARDS_IN_HAND) {
@@ -511,13 +511,13 @@ void addCard(GoFishPlayer& player, const Card& card) {
     }
     // Silenciosamente ignora si está lleno (previene overflow)
 }
-\`\`\`
+```
 
 ### 🎮 **Experiencia de Usuario**
 
 #### ⌨️ **Interfaz Intuitiva**
 
-\`\`\`cpp
+```cpp
 // Navegación con flechas del teclado
 int key = _getch();
 if (key == 224 || key == 0) {  // Tecla extendida
@@ -528,11 +528,11 @@ if (key == 224 || key == 0) {  // Tecla extendida
         choice = (choice + 1) % 4;
     }
 }
-\`\`\`
+```
 
 #### 🎭 **Efectos Visuales**
 
-\`\`\`cpp
+```cpp
 // Pausas dramáticas para crear tensión
 void showHand(Card hand[HAND_SIZE], bool hide = false) {
     for (int i = 0; i < HAND_SIZE; i++) {
@@ -546,13 +546,13 @@ void showHand(Card hand[HAND_SIZE], bool hide = false) {
     }
     cout << endl;
 }
-\`\`\`
+```
 
 ### 🔧 **Mantenibilidad y Extensibilidad**
 
 #### 📝 **Código Autodocumentado**
 
-\`\`\`cpp
+```cpp
 // Nombres descriptivos y comentarios claros
 bool isGameOver(GoFishPlayer players[], int numPlayers) {
     // Verificar si algún jugador ha alcanzado la condición de victoria
@@ -563,11 +563,11 @@ bool isGameOver(GoFishPlayer players[], int numPlayers) {
     }
     return false;
 }
-\`\`\`
+```
 
 #### 🔄 **Reutilización de Código**
 
-\`\`\`cpp
+```cpp
 // Funciones genéricas reutilizables
 template<typename T>
 void swap(T& a, T& b) {
@@ -575,7 +575,7 @@ void swap(T& a, T& b) {
     a = b;
     b = temp;
 }
-\`\`\`
+```
 
 ### 🧪 **Estrategias de Testing**
 
@@ -586,12 +586,12 @@ void swap(T& a, T& b) {
 
 #### 🐛 **Debugging y Monitoreo**
 
-\`\`\`cpp
+```cpp
 #ifdef DEBUG
     cout << "DEBUG: Carta repartida: " << card.rank << card.suit << endl;
     cout << "DEBUG: Dinero actual: $" << playerMoney << endl;
 #endif
-\`\`\`
+```
 
 ---
 
@@ -701,24 +701,24 @@ El proyecto utiliza las siguientes librerías de C++ para su funcionamiento:
 ### 🚀 Pasos para Ejecutar
 
 1. **Clonar el repositorio:**
-   \`\`\`bash
+   ```bash
    git clone https://github.com/FDP-01-2025/project-alt-f4-team.git
    cd project-alt-f4-team
-   \`\`\`
+   ```
 
 2. **Compilar el proyecto:**
-   \`\`\`bash
+   ```bash
    g++ -o cartas_vs main.cpp
-   \`\`\`
+   ```
 
 3. **Ejecutar el juego:**
-   \`\`\`bash
+   ```bash
    ./cartas_vs
-   \`\`\`
+   ```
    o en Windows:
-   \`\`\`cmd
+   ```cmd
    cartas_vs.exe
-   \`\`\`
+   ```
 
 ### 🎮 Controles del Juego
 - **↑/↓:** Navegar por el menú principal
