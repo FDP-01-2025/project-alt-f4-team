@@ -127,6 +127,7 @@ Juego por turnos. Se piden cartas al oponente para formar cuartetos. Gana quien 
 #### 🔢 **1. Variables y Tipos de Datos**
 
 **📝 Tipos Básicos:**
+
 \`\`\`cpp
 // Enteros para contadores y valores
 int playerMoney = 1000;        // Dinero del jugador
@@ -143,6 +144,7 @@ bool playerBusted = false;     // Estado de juego
 \`\`\`
 
 **📋 Tipos Compuestos:**
+
 \`\`\`cpp
 // Strings para texto
 string rankName = "Ace";       // Nombre de carta
@@ -156,6 +158,7 @@ int values[HAND_SIZE];         // Valores para ordenamiento
 #### 🏗️ **2. Estructuras (struct)**
 
 **🃏 Estructura de Carta:**
+
 \`\`\`cpp
 struct Card {
     string rank;    // Rango de la carta (A, 2-10, J, Q, K)
@@ -164,6 +167,7 @@ struct Card {
 \`\`\`
 
 **🎮 Estructura de Jugador:**
+
 \`\`\`cpp
 struct GoFishPlayer {
     Card hand[MAX_CARDS_IN_HAND];  // Cartas en mano
@@ -174,6 +178,7 @@ struct GoFishPlayer {
 \`\`\`
 
 **🃏 Estructura de Mazo:**
+
 \`\`\`cpp
 struct Deck {
     Card cards[DECK_SIZE];    // Array de 52 cartas
@@ -188,6 +193,7 @@ struct Deck {
 #### 🔄 **3. Estructuras de Control**
 
 **🔀 Condicionales (if/else):**
+
 \`\`\`cpp
 // Evaluación de mano en Blackjack
 if (playerHand.isBlackjack()) {
@@ -202,6 +208,7 @@ if (playerHand.isBlackjack()) {
 \`\`\`
 
 **🎯 Switch-Case:**
+
 \`\`\`cpp
 // Menú principal
 switch (choice) {
@@ -223,6 +230,7 @@ switch (choice) {
 #### 🔁 **4. Ciclos (Loops)**
 
 **♾️ While Loop:**
+
 \`\`\`cpp
 // Bucle principal del juego
 while (playerMoney > 0) {
@@ -238,6 +246,7 @@ while (playerMoney > 0) {
 \`\`\`
 
 **🔢 For Loop:**
+
 \`\`\`cpp
 // Repartir cartas iniciales
 for (int i = 0; i < HAND_SIZE; i++) {
@@ -253,6 +262,7 @@ for (int i = 0; i < player.cardCount; i++) {
 \`\`\`
 
 **🔄 Do-While Loop:**
+
 \`\`\`cpp
 // Validación de entrada
 do {
@@ -270,6 +280,7 @@ do {
 #### 🧮 **5. Funciones**
 
 **📤 Funciones sin Retorno (void):**
+
 \`\`\`cpp
 // Mostrar mano de cartas
 void showHand(const GoFishPlayer& player) {
@@ -292,6 +303,7 @@ void clearScreen() {
 \`\`\`
 
 **🔙 Funciones con Retorno:**
+
 \`\`\`cpp
 // Evaluar mano de poker
 int evaluateHand(Card hand[HAND_SIZE], string &result) {
@@ -314,6 +326,7 @@ int getCardValueBlackjack(const Card &card) {
 \`\`\`
 
 **📥 Funciones con Parámetros por Referencia:**
+
 \`\`\`cpp
 // Transferir cartas entre jugadores
 bool transferCards(GoFishPlayer& from, GoFishPlayer& to, int rank) {
@@ -338,6 +351,7 @@ bool transferCards(GoFishPlayer& from, GoFishPlayer& to, int rank) {
 #### 📚 **6. Arrays y Manejo de Memoria**
 
 **🗃️ Arrays Estáticos:**
+
 \`\`\`cpp
 // Array de cartas en mano
 Card playerHand[MAX_HAND_SIZE];
@@ -355,6 +369,7 @@ string options[4] = {
 \`\`\`
 
 **🔄 Manipulación de Arrays:**
+
 \`\`\`cpp
 // Ordenamiento burbuja
 void sort(int arr[], int n = HAND_SIZE) {
@@ -418,6 +433,7 @@ int getIntInput(const string& prompt, int min, int max) {
 ### 🏗️ **Arquitectura del Sistema**
 
 #### 📁 **Organización Modular**
+
 \`\`\`
 src/
 ├── card.h      - Definición y manejo de cartas individuales
@@ -437,6 +453,7 @@ src/
 ### ⚡ **Optimización y Rendimiento**
 
 #### 🚀 **Eficiencia Algorítmica**
+
 \`\`\`cpp
 // Algoritmo de Fisher-Yates para barajado O(n)
 void shuffle() {
@@ -466,6 +483,7 @@ int countRank(const GoFishPlayer& player, int rank) {
 ### 🛡️ **Robustez y Manejo de Errores**
 
 #### ✅ **Validación Exhaustiva**
+
 \`\`\`cpp
 // Validación de entrada con recuperación
 bool askYesNoValidated(const string& prompt) {
@@ -483,6 +501,7 @@ bool askYesNoValidated(const string& prompt) {
 \`\`\`
 
 #### 🔒 **Prevención de Estados Inválidos**
+
 \`\`\`cpp
 // Verificación de límites de array
 void addCard(GoFishPlayer& player, const Card& card) {
@@ -497,6 +516,7 @@ void addCard(GoFishPlayer& player, const Card& card) {
 ### 🎮 **Experiencia de Usuario**
 
 #### ⌨️ **Interfaz Intuitiva**
+
 \`\`\`cpp
 // Navegación con flechas del teclado
 int key = _getch();
@@ -511,6 +531,7 @@ if (key == 224 || key == 0) {  // Tecla extendida
 \`\`\`
 
 #### 🎭 **Efectos Visuales**
+
 \`\`\`cpp
 // Pausas dramáticas para crear tensión
 void showHand(Card hand[HAND_SIZE], bool hide = false) {
@@ -530,6 +551,7 @@ void showHand(Card hand[HAND_SIZE], bool hide = false) {
 ### 🔧 **Mantenibilidad y Extensibilidad**
 
 #### 📝 **Código Autodocumentado**
+
 \`\`\`cpp
 // Nombres descriptivos y comentarios claros
 bool isGameOver(GoFishPlayer players[], int numPlayers) {
@@ -544,6 +566,7 @@ bool isGameOver(GoFishPlayer players[], int numPlayers) {
 \`\`\`
 
 #### 🔄 **Reutilización de Código**
+
 \`\`\`cpp
 // Funciones genéricas reutilizables
 template<typename T>
@@ -562,6 +585,7 @@ void swap(T& a, T& b) {
 - **Lógica de juego**: Todas las combinaciones de poker, valores de blackjack
 
 #### 🐛 **Debugging y Monitoreo**
+
 \`\`\`cpp
 #ifdef DEBUG
     cout << "DEBUG: Carta repartida: " << card.rank << card.suit << endl;
