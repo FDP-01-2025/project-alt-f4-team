@@ -116,10 +116,10 @@ El flujo es intuitivo desde el menú principal. Cada juego contiene instruccione
 ♦️ **4. Menú Blackjack**  
 ![Menú Blackjack](https://github.com/user-attachments/assets/239eae73-a50b-415d-91c6-32151c0152e5)
 
-♦️ **5. Partida Blackjack**
+♦️ **5. Partida Blackjack**  
 ![Partida Blackjack](https://github.com/user-attachments/assets/c88b6b3b-1928-4235-86fc-c449490f8c3d)
 
-🎣 **6. Menu Vete a Pescar**
+🎣 **6. Menu Vete a Pescar**  
 ![Menu GoFish](https://github.com/user-attachments/assets/5cbb680a-9b4e-4db7-a137-c0e2c9e58ab1)
 
 🎣 **7. Partida Vete a Pescar**
