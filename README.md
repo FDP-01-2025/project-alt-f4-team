@@ -30,7 +30,7 @@
 8. 🙏 Agradecimientos  
 9. 📚 Librerías Utilizadas
 10. 🖥️ Instrucciones de Ejecución
-
+** De recomendación descargar flujograma para mejor visualización **
 ---
 
 ## 1. 🎯 Objetivos
