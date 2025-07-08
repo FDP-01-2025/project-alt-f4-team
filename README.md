@@ -128,7 +128,7 @@ Juego por turnos. Se piden cartas al oponente para formar cuartetos. Gana quien 
 
 **📝 Tipos Básicos:**
 
-\`\`\`cpp
+```cpp
 // Enteros para contadores y valores
 int playerMoney = 1000;        // Dinero del jugador
 int cardCount = 0;             // Contador de cartas
@@ -141,11 +141,11 @@ char answer;                   // Respuesta y/n
 // Booleanos para estados
 bool isRunning = true;         // Control de bucle principal
 bool playerBusted = false;     // Estado de juego
-\`\`\`
+```
 
 **📋 Tipos Compuestos:**
 
-\`\`\`cpp
+```cpp
 // Strings para texto
 string rankName = "Ace";       // Nombre de carta
 string playerName;             // Nombre del jugador
@@ -153,33 +153,33 @@ string playerName;             // Nombre del jugador
 // Arrays para colecciones
 Card hand[MAX_HAND_SIZE];      // Mano de cartas
 int values[HAND_SIZE];         // Valores para ordenamiento
-\`\`\`
+```
 
 #### 🏗️ **2. Estructuras (struct)**
 
 **🃏 Estructura de Carta:**
 
-\`\`\`cpp
+```cpp
 struct Card {
     string rank;    // Rango de la carta (A, 2-10, J, Q, K)
     char suit;      // Palo (H, D, C, S)
 };
-\`\`\`
+```
 
 **🎮 Estructura de Jugador:**
 
-\`\`\`cpp
+```cpp
 struct GoFishPlayer {
     Card hand[MAX_CARDS_IN_HAND];  // Cartas en mano
     int cardCount;                 // Número de cartas
     int books;                     // Libros formados
     char name[20];                 // Nombre del jugador
 };
-\`\`\`
+```
 
 **🃏 Estructura de Mazo:**
 
-\`\`\`cpp
+```cpp
 struct Deck {
     Card cards[DECK_SIZE];    // Array de 52 cartas
     int topCard;              // Índice de próxima carta
@@ -188,13 +188,13 @@ struct Deck {
     void shuffle();           // Barajar cartas
     Card dealCard();          // Repartir carta
 };
-\`\`\`
+```
 
 #### 🔄 **3. Estructuras de Control**
 
 **🔀 Condicionales (if/else):**
 
-\`\`\`cpp
+```cpp
 // Evaluación de mano en Blackjack
 if (playerHand.isBlackjack()) {
     cout << "¡Blackjack! ¡Ganaste!" << endl;
@@ -205,11 +205,11 @@ if (playerHand.isBlackjack()) {
 } else {
     // Continuar juego normal
 }
-\`\`\`
+```
 
 **🎯 Switch-Case:**
 
-\`\`\`cpp
+```cpp
 // Menú principal
 switch (choice) {
     case 0:
@@ -225,13 +225,13 @@ switch (choice) {
         cout << "¡Gracias por jugar!" << endl;
         return 0;
 }
-\`\`\`
+```
 
 #### 🔁 **4. Ciclos (Loops)**
 
 **♾️ While Loop:**
 
-\`\`\`cpp
+```cpp
 // Bucle principal del juego
 while (playerMoney > 0) {
     // Mostrar dinero actual
@@ -243,11 +243,11 @@ while (playerMoney > 0) {
     // Jugar ronda
     playRound(bet);
 }
-\`\`\`
+```
 
 **🔢 For Loop:**
 
-\`\`\`cpp
+```cpp
 // Repartir cartas iniciales
 for (int i = 0; i < HAND_SIZE; i++) {
     player[i] = deck.dealCard();
@@ -259,11 +259,11 @@ for (int i = 0; i < player.cardCount; i++) {
     printCardShort(player.hand[i]);
     cout << " ";
 }
-\`\`\`
+```
 
 **🔄 Do-While Loop:**
 
-\`\`\`cpp
+```cpp
 // Validación de entrada
 do {
     cout << "¿Quieres otra carta? (y/n): ";
@@ -275,13 +275,13 @@ do {
         cin.ignore(1000, '\n');
     }
 } while (cin.fail() || (answer != 'y' && answer != 'n'));
-\`\`\`
+```
 
 #### 🧮 **5. Funciones**
 
 **📤 Funciones sin Retorno (void):**
 
-\`\`\`cpp
+```cpp
 // Mostrar mano de cartas
 void showHand(const GoFishPlayer& player) {
     cout << player.name << ", tu mano: ";
@@ -300,11 +300,11 @@ void clearScreen() {
         system("clear");
     #endif
 }
-\`\`\`
+```
 
 **🔙 Funciones con Retorno:**
 
-\`\`\`cpp
+```cpp
 // Evaluar mano de poker
 int evaluateHand(Card hand[HAND_SIZE], string &result) {
     // Lógica de evaluación...
@@ -323,11 +323,11 @@ int getCardValueBlackjack(const Card &card) {
         return 10;
     return stoi(card.rank);
 }
-\`\`\`
+```
 
 **📥 Funciones con Parámetros por Referencia:**
 
-\`\`\`cpp
+```cpp
 // Transferir cartas entre jugadores
 bool transferCards(GoFishPlayer& from, GoFishPlayer& to, int rank) {
     bool found = false;
@@ -346,13 +346,13 @@ bool transferCards(GoFishPlayer& from, GoFishPlayer& to, int rank) {
     }
     return found;
 }
-\`\`\`
+```
 
 #### 📚 **6. Arrays y Manejo de Memoria**
 
 **🗃️ Arrays Estáticos:**
 
-\`\`\`cpp
+```cpp
 // Array de cartas en mano
 Card playerHand[MAX_HAND_SIZE];
 
@@ -366,11 +366,11 @@ string options[4] = {
     "3. Go Fish",
     "4. Salir"
 };
-\`\`\`
+```
 
 **🔄 Manipulación de Arrays:**
 
-\`\`\`cpp
+```cpp
 // Ordenamiento burbuja
 void sort(int arr[], int n = HAND_SIZE) {
     for (int i = 0; i < n - 1; i++) {
@@ -381,11 +381,11 @@ void sort(int arr[], int n = HAND_SIZE) {
         }
     }
 }
-\`\`\`
+```
 
 #### 🎲 **7. Generación de Números Aleatorios**
 
-\`\`\`cpp
+```cpp
 // Inicialización de semilla
 srand(time(0));
 
@@ -398,11 +398,11 @@ void shuffle() {
         cards[randIndex] = temp;
     }
 }
-\`\`\`
+```
 
 #### 🛡️ **8. Validación de Entrada**
 
-\`\`\`cpp
+```cpp
 // Función robusta de validación
 int getIntInput(const string& prompt, int min, int max) {
     int input;
@@ -424,7 +424,7 @@ int getIntInput(const string& prompt, int min, int max) {
     
     return input;
 }
-\`\`\`
+```
 
 ---
 
@@ -434,7 +434,7 @@ int getIntInput(const string& prompt, int min, int max) {
 
 #### 📁 **Organización Modular**
 
-\`\`\`
+```
 src/
 ├── card.h      - Definición y manejo de cartas individuales
 ├── deck.h      - Gestión del mazo completo y barajado
@@ -442,7 +442,7 @@ src/
 ├── poker.h     - Lógica específica del juego de Poker
 ├── blackjack.h - Implementación del Blackjack
 └── gofish.h    - Mecánicas del juego Vete a Pescar
-\`\`\`
+```
 
 #### 🔗 **Separación de Responsabilidades**
 - **Presentación**: Funciones de interfaz y menús
@@ -454,7 +454,7 @@ src/
 
 #### 🚀 **Eficiencia Algorítmica**
 
-\`\`\`cpp
+```cpp
 // Algoritmo de Fisher-Yates para barajado O(n)
 void shuffle() {
     for (int i = DECK_SIZE - 1; i > 0; i--) {
@@ -473,7 +473,7 @@ int countRank(const GoFishPlayer& player, int rank) {
     }
     return count;
 }
-\`\`\`
+```
 
 #### 💾 **Gestión de Memoria**
 - **Arrays estáticos**: Evita fragmentación de memoria
@@ -484,7 +484,7 @@ int countRank(const GoFishPlayer& player, int rank) {
 
 #### ✅ **Validación Exhaustiva**
 
-\`\`\`cpp
+```cpp
 // Validación de entrada con recuperación
 bool askYesNoValidated(const string& prompt) {
     string input;
@@ -498,7 +498,7 @@ bool askYesNoValidated(const string& prompt) {
         cout << "Entrada inválida. Ingresa 'y' o 'n'." << endl;
     }
 }
-\`\`\`
+```
 
 #### 🔒 **Prevención de Estados Inválidos**
 
