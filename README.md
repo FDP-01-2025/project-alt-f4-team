@@ -116,9 +116,11 @@ Todo el flujo del programa está diseñado para ser intuitivo. Al iniciar, el ju
 
 ## 3. Mockups del Juego
 
-1. **Menu Principal**
-![Menu Principal](https://github.com/user-attachments/assets/f9f973af-3c36-4dd6-b05f-8bafd22fd376)
-![Menu Poker](https://github.com/user-attachments/assets/085d5cac-ffc0-4b0e-ae20-2c83e99251ae)
+**1. Menu Principal**
+![Menu Principal]
+
+
+![Menu Poker]
 ---
 
 ## 4. Recomendaciones
