@@ -115,7 +115,6 @@ Todo el flujo del programa está diseñado para ser intuitivo. Al iniciar, el ju
 ---
 
 ## 3. Mockups del Juego
-![Menu Principal](https://github.com/user-attachments/assets/f9f973af-3c36-4dd6-b05f-8bafd22fd376)
 
 ---
 
