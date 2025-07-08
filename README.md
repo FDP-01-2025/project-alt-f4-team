@@ -36,9 +36,11 @@
 ## 1. 🎯 Objetivos
 
 ### 🎯 Objetivo General
+
 Diseñar y desarrollar un videojuego de cartas completamente funcional utilizando el lenguaje de programación C++, que se ejecute desde la consola y permita al usuario elegir entre dos modalidades de juego: individual contra una inteligencia artificial básica o multijugador local por turnos. El objetivo principal es aplicar de forma práctica los conceptos fundamentales de la programación estructurada, tales como condicionales, ciclos, funciones, manejo de arreglos y estructuras de control, mediante un proyecto que estimule el aprendizaje creativo, la lógica y el trabajo colaborativo.
 
 ### ✅ Objetivos Específicos
+
 1. 💻 Desarrollar la lógica y mecánicas de tres juegos de cartas clásicos —Póker simplificado, Blackjack y Vete a Pescar— adaptados a un entorno de consola en C++.  
 2. 🤝 Fomentar el trabajo en equipo, el aprendizaje autónomo y la responsabilidad compartida entre los miembros del grupo a través de la distribución equilibrada de tareas.
 
@@ -51,17 +53,17 @@ El proyecto titulado **"Cartas VS"** consiste en el diseño y desarrollo de un v
 El videojuego incluirá tres minijuegos clásicos de cartas: **Póker simplificado**, **Blackjack (21)** y **Vete a Pescar**, todos adaptados para funcionar en una interfaz de texto dentro de la consola. El jugador podrá seleccionar el juego que desea iniciar desde un menú principal, así como el modo de juego.
 
 ### 🧩 Características generales del sistema
+
 - 📜 El menú principal ofrecerá al usuario la opción de elegir entre los tres juegos disponibles o salir del programa.  
 - 🧩 Todos los juegos estarán programados de forma modular.  
 - 🖼️ La interfaz será completamente textual, utilizando caracteres ASCII.  
 - 🧠 El programa controlará el flujo, verificará condiciones de victoria y mostrará resultados.  
 - 🛡️ Entrada de datos controlada mediante validaciones.
 
----
-
 ### 🃏 Detalles de cada juego implementado
 
 #### ♠️ 1. Póker simplificado
+
 En esta versión básica, el jugador recibe una mano de 5 cartas, puede cambiar algunas y se evalúa la jugada contra la de la IA.
 
 **🔧 Elementos clave:**
@@ -70,6 +72,7 @@ En esta versión básica, el jugador recibe una mano de 5 cartas, puede cambiar 
 - Funciones para generar, evaluar y mostrar cartas  
 
 #### ♦️ 2. Blackjack (21)
+
 Objetivo: llegar a 21 sin pasarse. Se juega contra la banca controlada por la máquina.
 
 **🔧 Elementos clave:**
@@ -78,6 +81,7 @@ Objetivo: llegar a 21 sin pasarse. Se juega contra la banca controlada por la m�
 - Evaluación de condiciones de victoria  
 
 #### 🎣 3. Vete a Pescar
+
 Juego por turnos. Se piden cartas al oponente para formar cuartetos. Gana quien forme más.
 
 **🔧 Elementos clave:**
@@ -90,6 +94,7 @@ Juego por turnos. Se piden cartas al oponente para formar cuartetos. Gana quien 
 ## 3. 🎨 Temática y Ambientación
 
 ### 🎰 **Concepto General**
+
 **"Cartas VS"** adopta la temática clásica de un **casino virtual** adaptado para consola, donde el jugador experimenta la emoción de los juegos de cartas tradicionales en un ambiente controlado y educativo.
 
 ### 🎭 **Elementos Temáticos**
@@ -592,6 +597,7 @@ void swap(T& a, T& b) {
 ---
 
 ## 7. 💡 Recomendaciones
+
 - 🗓️ Planificar el proyecto desde el inicio con roles bien definidos  
 - 💬 Comentar el código constantemente  
 - 🧪 Realizar pruebas tras cada avance  
