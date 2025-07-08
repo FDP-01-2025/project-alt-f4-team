@@ -249,3 +249,4 @@ project-alt-f4-team/
 - El juego está optimizado para **Windows** debido al uso de librerías específicas
 - Asegúrate de tener un compilador de C++ instalado
 - El juego se ejecuta completamente en la consola/terminal
+
