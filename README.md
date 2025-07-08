@@ -1,136 +1,131 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mi1WNrHU)
 
-# Cartas VS
+# 🂡 Cartas VS
 
-**Universidad Centroamericana José Simeón Cañas**  
-**Fundamentos de Programación**  
-Aula: ICAS 24. Sección: 01  
-Docente: Guillermo Cortés  
+**🏫 Universidad Centroamericana José Simeón Cañas**  
+**📘 Fundamentos de Programación**  
+🧮 Aula: ICAS 24 &nbsp;&nbsp;|&nbsp;&nbsp; 🧑‍🏫 Sección: 01 &nbsp;&nbsp;|&nbsp;&nbsp; 👨‍🏫 Docente: Guillermo Cortés  
 
-### Proyecto: Cartas VS  
+## 🎯 Proyecto: Cartas VS  
 
-**Estudiantes:**  
-- Néstor Josué Arana Guevara - 00092725  
-- Fernando José Barrera Contreras - 00115725  
-- Adrián Emanuel Escobar Avilés – 00032125  
+**👥 Estudiantes:**  
+- 🎓 Néstor Josué Arana Guevara - 00092725  
+- 🎓 Fernando José Barrera Contreras - 00115725  
+- 🎓 Adrián Emanuel Escobar Avilés – 00032125  
 
-Antiguo Cuscatlán, lunes 7 de julio de 2025  
-
----
-
-## Índice
-
-1. Objetivos  
-2. Descripción del Proyecto  
-3. Flujograma  
-4. Recomendaciones  
-5. Agradecimientos  
+📍 Antiguo Cuscatlán, lunes 7 de julio de 2025  
 
 ---
 
-## 1. Objetivos
+## 📑 Índice
 
-### Objetivo General
+1. 🎯 Objetivos  
+2. 📝 Descripción del Proyecto  
+3. 🧪 Mockups del Juego  
+4. 💡 Recomendaciones  
+5. 🙏 Agradecimientos  
+
+---
+
+## 1. 🎯 Objetivos
+
+### 🎯 Objetivo General
 
 Diseñar y desarrollar un videojuego de cartas completamente funcional utilizando el lenguaje de programación C++, que se ejecute desde la consola y permita al usuario elegir entre dos modalidades de juego: individual contra una inteligencia artificial básica o multijugador local por turnos. El objetivo principal es aplicar de forma práctica los conceptos fundamentales de la programación estructurada, tales como condicionales, ciclos, funciones, manejo de arreglos y estructuras de control, mediante un proyecto que estimule el aprendizaje creativo, la lógica y el trabajo colaborativo.
 
-### Objetivos Específicos
+### ✅ Objetivos Específicos
 
-1. Desarrollar la lógica y mecánicas de tres juegos de cartas clásicos —Póker simplificado, Blackjack y Vete a Pescar— adaptados a un entorno de consola en C++. Cada juego contará con reglas y dinámicas definidas que serán programadas mediante el uso adecuado de estructuras de datos, condicionales, funciones personalizadas, ciclos iterativos y estructuras selectivas.
-
-2. Fomentar el trabajo en equipo, el aprendizaje autónomo y la responsabilidad compartida entre los miembros del grupo a través de la distribución equilibrada de tareas, el seguimiento del avance y la documentación continua del proyecto. Durante el desarrollo del videojuego, cada integrante del equipo asumirá roles definidos, ya sea en el diseño lógico, la codificación, las pruebas o la documentación. Se mantendrá un registro de avances, dificultades y decisiones técnicas, lo cual permitirá mejorar la comunicación interna, aprender de los errores y generar un producto final que no solo cumpla los objetivos técnicos, sino que también refleje el esfuerzo y la colaboración de todos los participantes.
+1. 💻 Desarrollar la lógica y mecánicas de tres juegos de cartas clásicos —Póker simplificado, Blackjack y Vete a Pescar— adaptados a un entorno de consola en C++.  
+2. 🤝 Fomentar el trabajo en equipo, el aprendizaje autónomo y la responsabilidad compartida entre los miembros del grupo a través de la distribución equilibrada de tareas.
 
 ---
 
-## 2. Descripción del Proyecto
+## 2. 📝 Descripción del Proyecto
 
-En esta sección se detalla el proyecto de juego, incluyendo:
+El proyecto titulado **“Cartas VS”** consiste en el diseño y desarrollo de un videojuego de cartas ejecutable desde la consola, programado en el lenguaje C++. Está orientado a reforzar de forma práctica los conocimientos adquiridos durante el curso Fundamentos de Programación, haciendo énfasis en la aplicación de estructuras de control, ciclos, funciones, condicionales, manejo de arreglos y conceptos básicos de entrada y salida de datos.
 
-El proyecto titulado “Cartas VS” consiste en el diseño y desarrollo de un videojuego de cartas ejecutable desde la consola, programado en el lenguaje C++. Está orientado a reforzar de forma práctica los conocimientos adquiridos durante el curso Fundamentos de Programación, haciendo énfasis en la aplicación de estructuras de control, ciclos, funciones, condicionales, manejo de arreglos y conceptos básicos de entrada y salida de datos.
+El videojuego incluirá tres minijuegos clásicos de cartas: **Póker simplificado**, **Blackjack (21)** y **Vete a Pescar**, todos adaptados para funcionar en una interfaz de texto dentro de la consola. El jugador podrá seleccionar el juego que desea iniciar desde un menú principal, así como el modo de juego.
 
-El videojuego incluirá tres minijuegos clásicos de cartas: Póker simplificado, Blackjack (21) y Vete a Pescar, todos adaptados para funcionar en una interfaz de texto dentro de la consola. El jugador podrá seleccionar el juego que desea iniciar desde un menú principal, así como el modo de juego: contra una inteligencia artificial básica (IA) o modo multijugador local, en el cual dos o tres usuarios se turnan utilizando el mismo dispositivo, en el caso de Vete a Pescar.
+### 🧩 Características generales del sistema
 
-### Características generales del sistema
+- 📜 El menú principal ofrecerá al usuario la opción de elegir entre los tres juegos disponibles o salir del programa.  
+- 🧩 Todos los juegos estarán programados de forma modular.  
+- 🖼️ La interfaz será completamente textual, utilizando caracteres ASCII.  
+- 🧠 El programa controlará el flujo, verificará condiciones de victoria y mostrará resultados.  
+- 🛡️ Entrada de datos controlada mediante validaciones.
 
-- El menú principal ofrecerá al usuario la opción de elegir entre los tres juegos disponibles o salir del programa.  
-- Todos los juegos estarán programados de forma modular, es decir, con funciones separadas que permitan mayor organización y mantenimiento del código.  
-- La interfaz del usuario será completamente textual, con una presentación clara y organizada utilizando caracteres ASCII para simular las cartas, los menús y las jugadas realizadas.  
-- El programa controlará el flujo de cada juego, verificará las condiciones de victoria y mostrará los resultados de cada partida.  
-- La entrada de datos será controlada mediante validaciones para evitar errores durante el uso del sistema.  
+---
 
-### Detalles de cada juego implementado
+### 🃏 Detalles de cada juego implementado
 
-#### 1. Póker simplificado
+#### ♠️ 1. Póker simplificado
 
-En esta versión básica de Póker, el jugador recibe una mano de 5 cartas generadas aleatoriamente. Luego tiene la oportunidad de cambiar una o varias cartas (indicando sus posiciones). Después del cambio, se evalúa la mano final y se compara con la de la máquina, la cual realiza un cambio automático con una lógica sencilla. Las jugadas posibles incluyen par, doble par, trío, full house, póker y escalera.
+En esta versión básica, el jugador recibe una mano de 5 cartas, puede cambiar algunas y se evalúa la jugada contra la de la IA.
 
-**Elementos clave:**
-
+**🔧 Elementos clave:**
 - Evaluación automática de jugadas  
-- Comparación entre manos del jugador y de la IA  
-- Uso de funciones para generar cartas, verificar combinaciones y mostrar resultados  
+- Comparación entre manos  
+- Funciones para generar, evaluar y mostrar cartas  
 
-#### 2. Blackjack (21)
+#### ♦️ 2. Blackjack (21)
 
-En este juego, el objetivo del jugador es sumar lo más cerca posible a 21 sin pasarse. El jugador comienza con dos cartas. El jugador decide si quiere otra carta (“pedir”) o si desea detenerse (“plantarse”). La banca (la máquina) juega después, siguiendo una lógica preestablecida (por ejemplo, pedir hasta llegar a 17). Al final se comparan los puntajes para determinar al ganador.
+Objetivo: llegar a 21 sin pasarse. Se juega contra la banca controlada por la máquina.
 
-**Elementos clave:**
-
-- Lógica de suma de valores de cartas, controlando el valor del As como 1 u 11  
-- Control de turnos y decisiones del jugador  
+**🔧 Elementos clave:**
+- Valor variable del As  
+- Turnos del jugador y de la IA  
 - Evaluación de condiciones de victoria  
 
-#### 3. Vete a Pescar
+#### 🎣 3. Vete a Pescar
 
-Este es un juego por turnos en el que el jugador debe pedirle al otro una carta de un valor específico (por ejemplo: “¿Tienes algún 5?”). Si el oponente tiene una o más cartas de ese valor, las entrega. Si no, el jugador “pesca” del mazo. El objetivo es formar la mayor cantidad de cuatro cartas iguales posibles. El juego termina cuando el jugador llegue a juntar 3 veces cuatro cartas del mismo número o letra.
+Juego por turnos. Se piden cartas al oponente para formar cuartetos. Gana quien forme más.
 
-**Elementos clave:**
-
-- Comunicación entre jugadores 
-- Detección y eliminación de pares en la mano  
-- Lógica de pesca y control del mazo  
-
----
-
-### Aspectos técnicos destacados
-
-- **Variables y tipos de datos**: Se utilizan para representar las cartas, manos, mazo, puntajes y estados de juego.  
-- **Condicionales**: Aplicadas para verificar combinaciones ganadoras, decisiones del jugador, estados de victoria o derrota, etc.  
-- **Bucles**: Controlan las rondas de juego, la petición de cartas, la repartición y validación de manos.  
-- **Funciones**: Organizan el código para tareas específicas como generar cartas, repartir manos, evaluar jugadas y mostrar información en pantalla.  
-- **Entrada y salida de datos**: Se trabaja con `cin` y `cout` para capturar decisiones del usuario y mostrar el estado del juego.  
+**🔧 Elementos clave:**
+- Turnos entre jugadores  
+- Manejo del mazo y detección de pares  
+- Control de finalización del juego  
 
 ---
 
-### Modularidad y estructura del código
+### 🛠️ Aspectos técnicos destacados
 
-El programa estará dividido en secciones lógicas mediante el uso de funciones. Se incluirán archivos separados si es necesario (por ejemplo, archivos `.h` independientes), lo que permitirá una estructura más clara y profesional.
-
----
-
-### Interacción con el usuario
-
-Todo el flujo del programa está diseñado para ser intuitivo. Al iniciar, el jugador verá un menú general desde el que podrá acceder a los diferentes juegos. Cada juego tendrá instrucciones claras, una presentación organizada de cartas y resultados finales. Se busca que el usuario no necesite conocimientos previos para poder jugar.
+- **📦 Variables y tipos de datos**  
+- **🔁 Condicionales y bucles**  
+- **🧮 Funciones organizadas modularmente**  
+- **🧾 Entrada y salida de datos con `cin` y `cout`**
 
 ---
 
-## 3. Mockups del Juego
+### 🗂️ Modularidad y estructura del código
 
-**1. Menu Principal**
-![Menu Principal](https://github.com/user-attachments/assets/4c3366f7-14b7-467b-9794-039fdfcb58e8)
+El programa se organiza por funciones e incluye archivos `.h` separados cuando es necesario, fomentando una estructura profesional y clara.
 
-**2. Menu Poker**
-![Menu Poker](https://github.com/user-attachments/assets/085d5cac-ffc0-4b0e-ae20-2c83e99251ae)
 ---
 
-## 4. Recomendaciones
+### 🎮 Interacción con el usuario
 
-- Planificar adecuadamente el proyecto desde sus primeras etapas, estableciendo una división clara de tareas entre los integrantes del equipo.  
-- Comentar el código durante su elaboración, para que todos los miembros del grupo comprendan su funcionamiento.  
-- Realizar pruebas constantes después de programar cada función o bloque importante.  
-- Priorizar la claridad de la interfaz de texto para facilitar la experiencia del usuario.  
-- Guardar respaldos frecuentes del proyecto, preferiblemente usando Git.  
-- Aprovechar este tipo de proyectos para experimentar e innovar.  
+El flujo es intuitivo desde el menú principal. Cada juego contiene instrucciones claras, cartas presentadas con ASCII y mensajes amigables para el jugador.
+
+---
+
+## 3. 🧪 Mockups del Juego
+
+🎴 **1. Menú Principal**  
+![🟦 Menú Principal](https://github.com/user-attachments/assets/4c3366f7-14b7-467b-9794-039fdfcb58e8)
+
+🃏 **2. Menú Póker**  
+![♠️ Menú Poker](https://github.com/user-attachments/assets/085d5cac-ffc0-4b0e-ae20-2c83e99251ae)
+
+---
+
+## 4. 💡 Recomendaciones
+
+- 🗓️ Planificar el proyecto desde el inicio con roles bien definidos  
+- 💬 Comentar el código constantemente  
+- 🧪 Realizar pruebas tras cada avance  
+- 🧼 Priorizar claridad visual en la interfaz  
+- 💾 Hacer respaldos frecuentes usando Git  
+- 🚀 Atreverse a experimentar e innovar
 
 ---
 
